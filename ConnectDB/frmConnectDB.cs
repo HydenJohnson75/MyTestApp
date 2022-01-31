@@ -16,21 +16,25 @@ namespace ConnectDB
     {
         OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
+        
         public frmConnectDB()
         {
             InitializeComponent();
+            
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-                conn.Open();
-                lblStatus.Text = "Connection Open";
+            conn.Open();
+            String connection_State = conn.State.ToString();
+            lblStatus.Text = connection_State;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             conn.Close();
-            lblStatus.Text = "Connection Closed";
+            String connection_State = conn.State.ToString();
+            lblStatus.Text = connection_State;
         }
     }
 }
